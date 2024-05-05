@@ -10,24 +10,15 @@ export default class Navbar extends Component {
 
   toggle = () => {
     this.setState({ active: !this.state.active });
-    // window.addEventListener("resize", function() {
-    //   if (this.state.active && window.innerWidth < 1024) {
-    //     document.querySelector("nav").style.height = "calc(50px + 0.5vh)";
-    //   } else {
-    //     document.querySelector("nav").style.height = "98vh";
-    //   }
-    // }
     if (this.state.active) {
       document.querySelector("nav").style.height = "calc(50px + 0.5vh)";
     } else {
-      document.querySelector("nav").style.height = "98vh";
+      document.querySelector("nav").style.height = "87.5vh";
     }
 
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024 && this.state.active) {
         document.querySelector("nav").style.height = "calc(50px + 0.5vh)";
-      } else {
-        this.setState({ active: this.state.active });
       }
     });
   };

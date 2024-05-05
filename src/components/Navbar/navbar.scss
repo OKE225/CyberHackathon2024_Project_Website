@@ -127,7 +127,6 @@ nav {
           margin-bottom: 15vh;
 
           li.nav-link {
-            // margin: 1vh 0;
             transition: all 50ms ease;
 
             &::after {
@@ -138,7 +137,6 @@ nav {
 
         + .toggle {
           position: absolute;
-          // height: 10px;
 
           span.icon::before {
             top: 14px;
@@ -208,7 +206,6 @@ nav {
 
       ul.nav-list {
         font-size: 8vw;
-        // font-size: 33px;
 
         li.nav-link::after {
           height: 1.25px;
