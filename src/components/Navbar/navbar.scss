@@ -1,0 +1,219 @@
+@import "../_variables.scss";
+
+nav {
+  background: $violet800;
+  position: fixed;
+  top: 1vh;
+  left: 0;
+  right: 0;
+  width: 99%;
+  height: calc(50px + 0.5vh);
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 0px $violet900;
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+    margin-left: 25px;
+
+    div.icons {
+      display: flex;
+      align-items: center;
+
+      a {
+        width: 30px;
+        height: 30px;
+
+        &:first-child {
+          margin-right: 15px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    ul.nav-list {
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      width: 100%;
+      font-size: calc(15px + 0.2vw);
+      font-weight: 300;
+
+      li.nav-link {
+        display: flex;
+        position: relative;
+        margin: 0 15px;
+        transition: all 300ms ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 1px;
+          background: white;
+          left: 0;
+          bottom: -2px;
+          transition: all 300ms ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        a.nav-item {
+          text-decoration: none;
+          color: $textColor;
+          transition: all 500ms ease;
+        }
+      }
+    }
+
+    .toggle {
+      span.icon {
+        display: none;
+      }
+    }
+  }
+}
+
+//---1024px
+
+@media (max-width: 1024px) {
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 97%;
+    transition: 0.5s;
+
+    .container {
+      display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+
+        div.icons {
+          position: absolute;
+          bottom: 4vh;
+
+          a {
+            height: calc(2vw + 50px);
+            width: auto;
+
+            &:first-child {
+              margin-right: 5vw;
+            }
+          }
+        }
+
+        ul.nav-list {
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+          font-size: calc(50px + 1vw);
+          font-weight: 400;
+          height: 50vh;
+          margin-bottom: 15vh;
+
+          li.nav-link {
+            // margin: 1vh 0;
+            transition: all 50ms ease;
+
+            &::after {
+              height: 3px;
+            }
+          }
+        }
+
+        + .toggle {
+          position: absolute;
+          // height: 10px;
+
+          span.icon::before {
+            top: 14px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 0 #fff;
+          }
+
+          span.icon::after {
+            bottom: 14px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .toggle {
+    margin-top: calc(12.5px + 0.125vh);
+    margin-right: 20px;
+
+    span.icon {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        z-index: 1;
+        box-shadow: 0 10px 0 #fff;
+        transition: 0.5s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        z-index: 1;
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+//---640px
+
+@media (max-width: 640px) {
+  nav {
+    .container.active {
+      div.icons a {
+        height: calc(5vw + 25px);
+        width: auto;
+
+        &:first-child {
+          margin-right: 5vw;
+        }
+      }
+
+      ul.nav-list {
+        font-size: 8vw;
+        // font-size: 33px;
+
+        li.nav-link::after {
+          height: 1.25px;
+        }
+      }
+    }
+  }
+}
